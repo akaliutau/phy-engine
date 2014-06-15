@@ -1,0 +1,125 @@
+# Config.common: platform independent configuration data + defaults for
+# platform dependent parameters.
+# #####################################################################
+
+# The following variables define what radiance and raytracing methods 
+# are to be offered.
+
+# world-space radiance computation methods:
+includeMonteCarloRadiosity = true
+includeDensityEstimation = true
+includePhotonMap = true
+includeHURA = false
+
+# the following require includeMonteCarloRadiosity to be true
+includeRandomWalkRadiosity = true
+includeStochasticRelaxationRadiosity = true
+
+# pixel-based radiance computation methods (raytracing methods):
+includeStochasticRayTracing = true
+includeBidirectionalPathTracing = true
+
+
+#####################################################################
+# compilation flags common to all platforms
+GLOBALFLAGS = -DRGBCOLORS -DNOPOOLS
+
+
+#####################################################################
+# Default web browser and URL where to find Phy2 home page
+# and online documentation.
+
+PHYHOME="\"https://github.com/akalu/phy-engine\""
+
+#####################################################################
+# compiler and other programs. Again: these are defaults that might
+# be overriden in the platform-dependent Config.site file
+CXX = CC
+CC = cc
+MAKEDEPEND = gcc -M
+PROFLAGS =
+DEBUGFLAGS =
+OPTFLAGS =
+CXXFLAGS =
+
+RM = rm
+TOUCH = touch
+YACC = yacc -d
+LEX = lex
+SYMLINK = ln -sf
+AR = ar rcu
+RANLIB = ranlib
+INSTALL = cp
+UNINSTALL = -$(RM)
+
+EXTRAFLAGS = -DDEFAULT_GAMMA=1.3 # -DWMP_WEIGHTS
+
+EXTRASRCS =
+
+################################################################
+# directory where to install Phy2
+INSTALLDIR = /usr/local
+BINDIR = ${INSTALLDIR}/bin
+INCDIR = ${INSTALLDIR}/include
+LIBDIR = ${INSTALLDIR}/lib
+
+# directory containing this file
+TOPDIR = `pwd`
+
+################################################################
+# 3D graphics driver: three drivers are supported:
+# opengl	: OpenGL driver (default)
+
+DRIVER = opengl
+DRIVERFLAGS =
+DRIVERLIBS = -lGLU -lGL
+
+################################################################
+# X/Motif stuff
+XINCLUDES =
+# some people need to link with -lXmu, -lXext or other libraries
+# such as '-lnsl -lgen -lsocket' on SUN or '-lPW -ldld' on HP.
+XLIBS = -lXt -lX11
+
+MOTIFINCLUDES = 
+# -lXpm is needed for Motif >=2.0, -lXp is needed for Motif >=2.1
+MOTIFLIBS = -lXm
+
+#####################################################################
+# TIFF support:
+# You need Sam Lefflers TIFF library if you want to be able to write
+# TIFF image output. You can obtain this library from
+# ftp://ftp.sgi.com/graphics/
+
+# If you don't want TIFF support, uncomment the following line
+#TIFFLAGS = -DNO_TIFF
+
+# If you want TIFF support, uncomment the following lines instead
+# (you might need to specify a path to the include files and library)
+TIFFLIB = -ltiff
+TIFFLAGS =
+
+# Define -DOLD_TIFF if you have a pre-3.4beta037 (august 1997)
+# version of the TIFF library. You won't be able to write your raytraced
+# images in high-dynamic range (LogLuv) TIFF format.
+# TIFFLAGS = -DOLD_TIFF
+
+
+#####################################################################
+# There should be no need to change anything here below
+MKDEPFLAGS = ${THISDIRFLAGS} ${EXTRAFLAGS} $(GLOBALFLAGS) $(MOTIFINCLUDES) $(XINCLUDES) $(CMDCFLAGS)
+CFLAGS = ${MKDEPFLAGS} ${PROFLAGS} ${DEBUGFLAGS} ${OPTFLAGS}
+LDFLAGS = ${THISDIRLDFLAGS} ${PROFLAGS} ${DEBUGFLAGS} ${OPTFLAGS}
+LIBS = ${THISDIRLIBS} $(TIFFLIB) $(DRIVERLIBS) $(MOTIFLIBS) $(XLIBS) -lm
+
+
+# default rule
+default: all
+
+.C.o:
+	$(CXX) -c $(CFLAGS) $(CXXFLAGS) $(CPPFLAGS) $*.C
+
+# cleaning commands common to all directories
+cleangen:
+	-$(RM) -rf core *.o *~ *% ii_files trash_heap deps
+	-$(TOUCH) deps

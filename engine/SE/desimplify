@@ -1,0 +1,4 @@
+#!/bin/sh
+#./Plyfile/plyindex | ./Plyfile/plyorient |  ./Plyfile/plynormals | ./Simplify/plysimplify -e .5 | ./Plyfile/plyremove vertex.face_indices vertex.edge_indices vertex.nx vertex.ny vertex.nz face.edge_indices edge
+/usr/bin/cat
+

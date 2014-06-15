@@ -1,0 +1,3 @@
+The polygon scan convertor was optimized for flat
+rendering (with or without Z buffer).
+

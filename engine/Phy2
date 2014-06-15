@@ -1,0 +1,971 @@
+! Phy2 application defaults
+Phy2*background: gray
+Phy2.title: Phy2
+
+*fontList: -*-helvetica-medium-r-*-*-12-*-*-*-*-*-*-*
+
+! Some filename defaults
+! %H resolves to the home directory
+
+*phyrcFilename: %H/.phyrc:./phyrc
+
+*menuBar.topAttachment: XmATTACH_FORM
+*menuBar.leftAttachment: XmATTACH_FORM
+*menuBar.rightAttachment: XmATTACH_FORM
+
+! canvas window
+*canvas.width: 640
+*canvas.height: 480
+*canvas.topAttachment: XmATTACH_WIDGET
+*canvas.topWidget: menuBar
+*canvas.bottomAttachment: XmATTACH_FORM
+*canvas.leftAttachment: XmATTACH_FORM
+*canvas.rightAttachment: XmATTACH_FORM
+
+*okLabelString: Ok
+*cancelLabelString: Cancel
+
+
+!General UI Options
+*fileAndBrowseRowCol.orientation: XmHORIZONTAL
+*fileAndBrowseButton.labelString: Browse
+!*fileAndBrowseDialog
+
+! File Options menu
+*fileOptionsButton.labelString: Model Options
+*forceOneSidednessButton.labelString: Force One-Sided Surfaces
+*disableTexturesButton.labelString: Disable textures
+*monochromeButton.labelString: Monochromatic
+*nqcdivsButton.labelString: Discretisation
+*nqcdivsDialog_popup.title: Discretisation
+*nqcdivsDialog.selectionLabelString: Quart Circle Divisions
+*nqcdivsDialog.textColumns: 2
+
+! file name prompt box
+*filenamePromptBox.selectionLabelString: Enter file name:
+
+! load file dialog box
+*loadBox.pattern: *.???
+*loadBox_popup.title: Load File
+
+! load background dialog box
+*loadBgBox.pattern: *.ppm*
+*loadBgBox_popup.title: Load Background
+
+! save file prompt box
+*saveImageBox.pattern: *.ppm*
+*saveImageBox_popup.title: Save Image
+
+
+! save model file selection box
+*saveModelBox.pattern: *.wrl*
+*saveModelBox_popup.title: Save Model
+
+! file statistics dialog box
+! The next string is used a C printf format string for printing statstics 
+! about the current scene. Spaces for empty lines are relevant.
+*fileStatsMessage.labelString: Scene Statistics:\n\
+  \n\
+Nr. of geometries: %d\n\
+Nr. of compounds: %d\n\
+Nr. of surfaces: %d\n\
+Nr. of vertices: %d\n\
+Nr. of patches: %d\n\
+  \n\
+Total area: %g m^2\n\
+Total selfemitted luminous power: %g lumen\n\
+Maximum selfemitted luminous power: %g lumen\n\
+Maximum selfemitted luminosity: %g lux\n\
+Estimated average luminosity: %g lux\n\
+Average reflectivity: %g\n\
+  \n\
+Memory usage: %d KBytes\n\
+Memory overhead: %d KBytes\n\
+  \n
+*statsBox_popup.title: Statistics
+*statsBox.okLabelString: Update
+*statsBox.cancelLabelString: Dismiss
+*statsBox.autoUnmanage: False
+
+! file menu
+*fileButton.labelString: File
+*loadButton.labelString: Load Scene
+*fixButton.labelString: Fix Scene
+*saveImageButton.labelString: Save Image
+*saveModelButton.labelString: Save Model
+*statsButton.labelString: Statistics
+*exitButton.labelString: Exit
+*loadBgButton.labelString: Load Background
+
+! fix menu
+*fixVertexOrderInViewButton.labelString: Fix Vertex Order In View
+
+! Radiance menu
+*radianceButton.labelString: Radiance
+*radianceMethodButton.labelString: Method
+*radianceOneIterationButton.labelString: One Iteration
+*radianceRunStopButton.labelString: Run/Pause
+*radianceControlButton.labelString: Settings
+
+! Radiance Method Submenu
+*NoRadianceButton.labelString: No Radiance
+*stochrayButton.labelString: Stochastic Ray Radiosity
+*wdrsButton.labelString: WDRS Radiosity
+*destButton.labelString: Density Estimation
+*rwradButton.labelString: Random Walk Radiosity
+*huraButton.labelString: The Ultimate Rendering Algorithm
+*pmapButton.labelString: Photon Map Construction
+*biradButton.labelString: Bi-directional Monte Carlo Radiosity
+
+! Outline Color Dialog
+*outlineColorBox_popup.title: Set Outline Color
+*outlineColorButton.labelString: Outline Color
+*outlineColorTitle.labelString: Outline Color
+*redLabel.labelString: Red
+*greenLabel.labelString: Green
+*blueLabel.labelString: Blue
+
+! Boundingbox Color Dialog
+*boundingboxColorBox_popup.title: Set BBox Color
+*boundingboxColorButton.labelString: Bounding Box Color
+*boundingboxColorTitle.labelString: Bounding Box Color
+
+! Cluster Color Dialog
+*clusterColorBox_popup.title: Set Cluster Color
+*clusterColorButton.labelString: Cluster Color
+*clusterColorTitle.labelString: Cluster Color
+
+! Render menu
+*renderButton.labelString: Rendering
+*displayListButton.labelString: Use Display Lists
+*frustumCullingButton.labelString: Frustum Culling
+*smoothShadingButton.labelString: Smooth Shading
+*noShadingButton.labelString: No Shading
+*backfacecullButton.labelString: Backface Culling
+*drawoutlineButton.labelString: Draw Outlines
+*drawboundingboxButton.labelString: Draw Bounding Boxes
+*drawclusterButton.labelString: Draw Clusters
+*useBackgroundButton.labelString: Use Backrgound
+
+*tmoButton.labelString: Tone Mapping
+
+! Tone Mapping Methods (JP)
+*tmoMethodButton.labelString: Tone Mapping
+*tmoLightnessButton.labelString: Lightness Mapping
+*tmoTmblRushButton.labelString: Tumblin/Rushmeiers' Mapping
+*tmoWardButton.labelString: Ward's Mapping
+*tmoFerwerdaButton.labelString: Partial Ferwerda's Mapping
+*tmoRevisedTmblRushButton.labelString: Revised Tumblin/Rushmeiers' Mapping
+
+! Monitor Calibration Dialog
+*monitorCalibrationDialog_popup.title: Monitor Calibration
+*gammaButton.labelString: Gamma
+*monitorCalibrationButton.labelString: Monitor Calibration
+*monitorCalibrationDialog.okLabelString: Set
+*monitorCalibrationDialog.cancelLabelString: Dismiss
+*monitorCalibrationDialog.autoUnmanage: False
+*monitorPrimariesTitle.labelString: Monitor Primary Colors
+*gammaBoxTitle.labelString: Gamma Correction
+*gammaFactorsLabel.labelString: Factors
+*gammaForm.orientation: XmHORIZONTAL
+*gammaForm*redLabel.labelString: R
+*gammaForm*redTextf.columns: 4
+*gammaForm*greenLabel.labelString: G
+*gammaForm*greenTextf.columns: 4
+*gammaForm*blueLabel.labelString: B
+*gammaForm*blueTextf.columns: 4
+*noTestImgButton.labelString: Display no test image
+*blackLevelTestImgButton.labelString: Display black level test image
+*gammaTestImgButton.labelString: Display gamma test image
+*CIExyForm.orientation: XmHORIZONTAL
+*redPrimaryTitle.labelString: Red
+*greenPrimaryTitle.labelString: Green
+*bluePrimaryTitle.labelString: Blue
+*whitePrimaryTitle.labelString: White
+*brightnessTitle.labelString: Brightness Adjustement
+*brightnessLabel.labelString:
+*lineWidthButton.labelString: Line Width
+*lineWidthBox.selectionLabelString: Line Width
+*lineWidthBox_popup.title: Set Line Width
+
+! Tonemapping parameters dialog
+*tmParamTitle.labelString: Tone mapping parameters
+*tmLdmaxLabel.labelString: Maximum display luminance
+*tmLdmaxTextf.columns: 6
+*tmCmaxLabel.labelString: Maximum displayable contrast
+*tmCmaxTextf.columns: 6
+
+! Brightness dialog
+*brightnessDialog_popup.title: Brightness and Adaptation
+*brightnessButton.labelString: Brightness and Adaptation
+*brightnessTitle.labelString: Brightness
+*brightnessLabel.labelString: Brightness Adjustement
+*brightnessTextf.columns: 6
+*brightnessAdaptButton.labelString: Re-Adapt
+*brightnessDialog.cancelLabelString: Dismiss
+*adaptationTitle.labelString: Adaptation
+*tmaMethodButton.labelString: Adaptation
+*tmaNoneButton.labelString: None
+*tmaAverageButton.labelString: Average
+*tmaMedianButton.labelString: Median
+*tmaIDRendrerButton.labelString: ID Rendering
+*tmLwaLabel.labelString: Real world adaptation luminance
+*tmLwaTextf.columns: 6
+
+! raytracing statistics dialog box
+
+*raytracingStatsMessage.labelString: Raytracing statistics:\n\
+  \n\
+Total time raytracing: %g sec.\n\
+Pixels per second: %g\n\
+Rays per second: %g\n\
+  \n
+
+! Raytracing Menu
+*raytracingButton.labelString: Ray Tracing
+*raytracingRunStopButton.labelString: Run/Stop
+*raytracingMethodButton.labelString: Method
+*raytracingControlButton.labelString: Settings
+*raytracingRedisplayButton.labelString: Redisplay
+*raytracingReprojectButton.labelString: Reproject
+*raytracingSaveImageButton.labelString: Save Image
+
+*NoRayTracingButton.labelString: No Ray Tracing
+*rtmRaycastingButton.labelString: Raycasting
+*rtmRaytracingButton.labelString: Raytracing
+*rtmStochasticRaytracingButton.labelString: Stochastic Ray Tracing
+*rtmBidirPathButton.labelString: Bidirectional Path Tracing
+*rtmGeneticButton.labelString: Genetic Rendering
+
+! Camera menu
+*cameraButton.labelString: Camera
+*editCameraButton.labelString: Edit
+*saveCameraButton.labelString: Save
+*restoreCameraButton.labelString: Restore
+*resetCameraButton.labelString: Reset
+*setAlternateCameraButton.labelString: Set Alternate
+*toggleAlternateCameraButton.labelString: Toggle Alternate
+*showAlternateCameraButton.labelString: Render Alternate
+
+! Edit Camera Panel
+*editCameraBox_popup.title: Edit Camera
+*editCameraBox.autoUnmanage: False
+*editCameraBox.okLabelString: Set
+*editCameraBox.cancelLabelString: Dismiss
+*eyepTitle.labelString: Eye Point
+*eyepForm.orientation: XmHORIZONTAL
+*xLabel.labelString: X
+*yLabel.labelString: Y
+*zLabel.labelString: Z
+*xTextf.columns: 6
+*yTextf.columns: 6
+*zTextf.columns: 6
+*lookpTitle.labelString: Focus Point
+*lookpForm.orientation: XmHORIZONTAL
+*updirTitle.labelString: Up Direction
+*updirForm.orientation: XmHORIZONTAL
+*fovTitle.labelString: Field Of View
+
+*debugButton.labelString: Debug
+
+! Canvas popup menu
+*editMaterialButton.labelString: Edit Material
+
+! Material Editor
+*editMaterialDialog_popup.title: Edit Material
+*editMaterialDialog.autoUnmanage: False
+*editMaterialDialog.okLabelString: Apply
+*editMaterialDialog.cancelLabelString: Dismiss
+*matForm.entryAlignment: XmALIGNMENT_CENTER
+*matTitle.labelString: Material Editor\n
+*matSelectionTitle.labelString: Selected Material
+*edfEditorTitle.labelString: Selfemittance
+*noEdfLabel.labelString: Not a luminaire
+*brdfEditorTitle.labelString: Reflectivity
+*noBrdfLabel.labelString: Not a reflecting material
+*btdfEditorTitle.labelString: Transparency
+*noBtdfLabel.labelString: Not a transparant material
+
+! Dump Menu
+*radDumpTextf.columns: 3
+*rgbDumpTextf.columns: 3
+*loglinDumpBox.orientation: XmHORIZONTAL
+!*loglinDumpBox.entryAlignment: XmALIGN_BEGINNING
+*keyBox.orientation: XmHORIZONTAL
+*fcvalTextf.columns: 8
+*fccolTextf.columns: 4
+
+! help menu
+*helpButton.labelString: Help
+*quickHelpButton.labelString: Quick Help
+*docButton.labelString: Online Docs
+*homeButton.labelString: Home Page
+*helpBox_popup.title: Quick Help
+*helpBox.okLabelString: Dismiss
+*helpScrollW.height: 400
+*helpScrollW.width: 500
+*helpScrollW.scrollingPolicy: XmAUTOMATIC
+*helpScrollW.scrollBarDisplayPolicy: XmAS_NEEDED
+*helpLabel.alignment: XmALIGNMENT_BEGINNING
+*helpLabel.labelString: Phy2 quick help:\n\
+Authors: \n\
+ \n\
+        Aliaksei Kaliutau\n\
+ \n\
+        June, 4, 2005.\n\
+ \n\
+ \n
+
+! stochastic ray radiosity control panel
+*srControlPanel.okLabelString: Dismiss
+*srForm.entryAlignment: XmALIGNMENT_CENTER
+
+*srTitle.labelString: Stochastic Ray Radiosity\n\
+Control Panel\n
+
+*srIterationMethodTitle.labelString: Iteration Method
+*srSemiIterativeButton.labelString: Semi Iterative
+*srSelfcorrectingButton.labelString: Selfcorrecting
+
+*srRaygenMethodTitle.labelString: Sampling 
+*srRandomButton.labelString: Random
+*srForceinvButton.labelString: Inverted Force Matrix QMC
+*srHaltonButton.labelString: Halton QMC
+
+*srConstantRadiosityTitle.labelString: Constant Radiosity
+*srConstantRadiosityBox.orientation: XmHORIZONTAL
+*srConstantRadiosityOn.labelString: On
+*srConstantRadiosityOff.labelString: Off
+
+*srVariaTitle.labelString: Other Options
+*srStartingOnes.labelString: Warming up it's
+*srStartingOnesTextf.columns: 12
+*srRaysPerPatch.labelString: Rays Per Patch
+*srRaysPerPatchTextf.columns: 12
+
+! Well Distributed Ray Set Radiosity Control Panel
+*wdrsControlPanel.okLabelString: Dismiss
+*wdrsForm.entryAlignment: XmALIGNMENT_CENTER
+
+*wdrsTitle.labelString: Well Distributed Ray Set Radiosity\n\
+Control Panel\n
+
+*wdrsQmcTitle.labelString: QMC sample sequence
+*wdrsForceinvButton.labelString: Inverted Force Matrix
+*wdrsHaltonButton.labelString: Halton
+*wdrsRandomButton.labelString: Random
+*wdrsNiederreiterButton.labelString: Niederreiter
+
+*wdrsHMeshTitle.labelString: Hierarchical meshing
+*wdrsAccuracyTitle.labelString: Accuracy
+*wdrsHMeshOnOffBox.orientation: XmHORIZONTAL
+*wdrsHMeshOnButton.labelString: On
+*wdrsHMeshOffButton.labelString: Off
+*wdrsHMeshingButton.labelString: Hierarchical Refinement
+*wdrsEpsilon.labelString: Epsilon
+*wdrsEpsilonTextf.columns: 12
+*wdrsMinArea.labelString: Rel. Min. Area
+*wdrsMinAreaTextf.columns: 12
+
+*wdrsClusteringTitle.labelString: Clustering
+*wdrsNoClusteringButton.labelString: No Clustering
+*wdrsIsotropicClusteringButton.labelString: Isotropic Clustering
+*wdrsOrientedClusteringButton.labelString: Oriented Clustering
+
+*wdrsVariaTitle.labelString: Other Options
+*wdrsInitialRays.labelString: Initial Rays Per Patch
+*wdrsInitialRaysTextf.columns: 4
+*wdrsStoreLinksButton.labelString: Store Links
+*wdrsStoreLinksTitle.labelString: Store Links?
+*wdrsDontStoreLinksButton.labelString: No
+*wdrsStoreLinksUniqueButton.labelString: At Bottom Level Only
+*wdrsStoreLinksAtAllLevelsButton.labelString: At All Levels
+*wdrsRefinementCriterionTitle.labelString: Refinement Criterion
+*wdrsHanrahanRefinementButton.labelString: Transported Power (Hanrahan)
+*wdrsPowerRefinementButton.labelString: Power-based Error Estimate
+*wdrsSmoothnessRefinementButton.labelString: Smoothness-based Error Estimate
+
+! Random Walk Radiosity 
+*rwradControlPanel.okLabelString: Dismiss
+*rwradForm.entryAlignment: XmALIGNMENT_CENTER
+
+*rwradTitle.labelString: Randomw Walk Radiosity\n\
+Control Panel\n
+
+*rwradStyleTitle.labelString: Style
+*rwradPattanaikButton.labelString: Pattanaik
+*rwradSbertButton.labelString: Gathering For Free (Sbert)
+*rwradPattanaikAvRhoButton.labelString: Pattanaik (Av. Refl. Surv.)
+*rwradKellerButton.labelString: Keller
+*rwradMultipathButton.labelString: Multipath (Sbert)
+*rwradComputeFormFactorButton.labelString: Dump Form Factors
+
+*rwradSamplingTitle.labelString: Sample Sequence
+*rwradRandomButton.labelString: Random
+*rwradHaltonButton.labelString: Halton
+*rwradScrambledHaltonButton.labelString: Scrambled Halton
+*rwradSobolButton.labelString: Sobol
+*rwradFaureButton.labelString: Faure
+*rwradGFaureButton.labelString: Generalized Faure
+*rwradNiederreiterButton.labelString: Niederreiter
+*rwradSamplingOffset.labelString: Sequence Index Offset Base
+*rwradSamplingOffsetTextf.columns: 4
+
+*rwradVariaTitle.labelString: Other Options
+*rwradQmcSamplingButton.labelString: QMC sampling
+*rwradDiscreteButton.labelString: Discrete
+*rwradInitialRays.labelString: Initial Rays Per Patch
+*rwradInitialRaysTextf.columns: 4
+*rwradInitialLocal.labelString: Initial Local lines Per Patch
+*rwradInitialLocalTextf.columns: 4
+*rwradInitialGlobal.labelString: Initial Global lines Per Patch
+*rwradInitialGlobalTextf.columns: 4
+
+*rwradSbertOptTitle.labelString: Gathering For Free Options
+*rwradGathOnlyButton.labelString: Show Gathering Contribution only
+*rwradShootOnlyButton.labelString: Show Shooting Contribution Only
+*rwradKFacButton.labelString: k-factor Combination Heuristic
+*rwradRelRadButton.labelString: Relative Radiosity Heuristic
+*rwradSampVarButton.labelString: Sample Variance Heuristic
+*rwradKFactor.labelString: k-factor
+*rwradKFactorTextf.columns: 12
+*rwradRefRad.labelString: Reference Radiosity
+*rwradRefRadTextf.columns: 12
+*rwradMinGatheredSamples.labelString: Min. Nr. Gath. Contribs.
+*rwradMinGatheredSamplesTextf.columns: 6
+
+! Particle Tracing Control Panel
+*ptForm.entryAlignment: XmALIGNMENT_CENTER
+*ptTitle.labelString: Particle Tracing\n Control Panel\n
+
+*ptLightSourceTitle.labelString: Light Source Sampling
+*ptLightParticles.labelString: Initial Light Particles
+*ptLightParticlesTextf.columns: 12
+*ptLightSourceUniformButton.labelString: Uniform Hemisphere Sampling
+*ptLightSourceCosinusButton.labelString: Cosinus Hemisphere Sampling
+*ptLightSourceEdfButton.labelString: EDF Sampling
+
+*ptReflectionTitle.labelString: Reflection Sampling
+*ptReflectionParticles.labelString: Particles per Reflection
+*ptReflectionParticlesTextf.columns: 12
+*ptReflectionUniformButton.labelString: Uniform Hemisphere Sampling
+*ptReflectionCosinusButton.labelString: Cosinus Hemisphere Sampling
+*ptReflectionBrdfButton.labelString: BRDF Sampling
+
+*ptCollectorTitle.labelString: Particle Collector
+*ptCollectorVirtualScreenButton.labelString: Virtual Screen
+*ptCollectorOtherButton.labelString: Other (not yet implemented)
+
+!Stochastic Ray tracing control panel
+*rtsControlPanel_popup.title: Stochastic Raytracing
+*rtsControlPanel.okLabelString: Dismiss
+*rtsForm.entryAlignment: XmALIGNMENT_CENTER
+*rtsForm.orientation: XmVERTICAL
+*rtsHorizontalForm.orientation: XmHORIZONTAL
+*rtsRightForm.orientation: XmVERTICAL
+
+*rtsTitle.labelString: Stochastic Raytracing Control\n
+
+*rtsPixelHandlingTitle.labelString: Pixel Sampling
+*rtsPixelSamples.labelString: Samples Per Pixel
+*rtsPixelSamplesTextf.columns: 10
+*rtsProgressiveToggle.labelString: Progressive Image Refinement
+*rtsDoFrameCoherentToggle.labelString: Frame Coherent Sampling
+*rtsDoCorellatedSamplingToggle.labelString: Pixel Correlated Sampling
+*rtsBaseSeed.labelString: Base Seed
+*rtsBaseSeedTextf.columns: 12
+
+
+*rtsRadianceContributionTitle.labelString: Radiance Contributions
+*rtsRadianceStoredForm.orientation: XmHORIZONTAL
+
+*rtsStoredNone.labelString: No storage use
+*rtsStoredDirect.labelString: Direct visualisation
+*rtsStoredIndirect.labelString: Indirect visualisation
+*rtsStoredPhotonmap.labelString: Photonmap specific
+
+*rtsRadianceStoredToggle.labelString: Use World Space Radiance
+*rtsRadianceNextEventForm.orientation: XmHORIZONTAL
+*rtsStoredDepthSamples.labelString: At Depth
+*rtsStoredDepthSamplesTextf.columns: 10
+
+*rtsRadianceNextEventToggle.labelString: Explicit Light Sampling
+*rtsImportantLightToggle.labelString: Light Importance Sampling
+*rtsNextEventSamples.labelString: Light Samples
+*rtsNextEventSamplesTextf.columns: 10
+
+*rtsPowerLights.labelString: Power based
+*rtsImportantLights.labelString: Importance based
+*rtsAllLights.labelString: All lights
+
+*rtsReflectionTitle.labelString: Surface Scattering
+*rtsReflectionSamples.labelString: Particles Per Scatter
+*rtsReflectionSamplesTextf.columns: 10
+
+*rtsDifferentFirstDG.labelString: Different for first D|G scatter
+*rtsFirstDGSamples.labelString: Particles For This Scatter
+*rtsFirstDGSamplesTextf.columns: 10
+*rtsSeparateSpecular.labelString: Sample specular separately
+
+*rtsReflectionUniformButton.labelString: Uniform Hemisphere Sampling
+*rtsReflectionUniformButton.Sensitive: False
+*rtsReflectionCosinusButton.labelString: Cosinus Hemisphere Sampling
+*rtsReflectionCosinusButton.Sensitive: False
+
+*rtsReflectionBrdfButton.labelString: BSDF Sampling
+*rtsReflectionClassicalButton.labelString: Classical Raytracing
+*rtsReflectionPhotonMapButton.labelString: Fresnel Specular Sampling
+
+*rtsMinimumPathDepth.labelString: Minimum Path Length
+*rtsMinimumPathDepthTextf.columns: 10
+*rtsMaximumPathDepth.labelString: Maximum Path Length
+*rtsMaximumPathDepthTextf.columns: 10
+
+*rtsBackgroundOptionsTitle.labelString: Background Options
+*rtsBackgroundOptionsTitle.orientation: XmHORIZONTAL
+
+*rtsBackgroundSamplingToggle.labelString: Use background sampling
+*rtsBackgroundDirectToggle.labelString: Use direct background radiance
+*rtsBackgroundIndirectToggle.labelString: Use indirect background radiance
+
+! Bidirectional path tracing
+
+*bidirControlPanel_popup.title: Bidirectional Path Tracing
+*bidirTitle.labelString: Bidirectional Path Tracing\n
+*bidirColumn.orientation: XmHORIZONTAL
+
+! Bidir presets
+*bidirPresetName.labelString: Apply preset
+
+*bidirPreset0.labelString: Startup Defaults
+*bidirPreset1.labelString: Default Bidirectional PT.
+*bidirPreset2.labelString: Default Path Tracing
+*bidirPreset3.labelString: Default Light Tracing
+*bidirPreset4.labelString: Set to Bidirectional PT.
+*bidirPreset5.labelString: Set to Path Tracing
+*bidirPreset6.labelString: Set to Light Tracing
+*bidirPreset7.labelString: Caustics Only
+*bidirPreset8.labelString: Diffuse Only
+*bidirPreset9.labelString: Classic PT Second Pass
+*bidirPreset10.labelString: Enhanced PT Second Pass
+*bidirPreset11.labelString: BPT Multipass
+*bidirPreset12.labelString: BPT Multipass + Indirect Caustics Opt.
+*bidirPreset13.labelString: Weighted BPT Multipass
+
+*bidirUseSpars.labelString: Use Regular Expressions
+*bidirSparFrameTitle.labelString: RegExp Config
+*bidirDoLe.labelString: Emitted Radiance
+*bidirDoLDI.labelString: Stored Illumination
+*bidirLeRegExp.labelString: RegExp
+*bidirLDRegExp.labelString: RegExp
+*bidirLIRegExp.labelString: RegExp
+
+*bidirDoWeighted.labelString: Weighted Multipass
+
+!*bidirDoLe.labelString: Emitted Radiance (BPT)
+!*bidirDoLD.labelString: Direct diffuse (RAD+PT)
+*bidirWLeRegExp.labelString: RegExp
+*bidirWLDRegExp.labelString: RegExp
+
+*bidirPixelHandlingTitle.labelString: Pixel Handling
+*bidirSamplesPerPixel.labelString: Samples Per Pixel
+*bidirProgressiveToggle.labelString: Progressive Image Refinement
+
+*bidirPathLengthFrameTitle.labelString: Path Length Configuration
+*bidirMaximumEyePathDepth.labelString: Maximum Eye Path Length
+*bidirMaximumLightPathDepth.labelString: Maximum Light Path Length
+*bidirMaximumPathDepth.labelString: Maximum Combined Path Length
+*bidirMinimumPathDepth.labelString: Minimum Path Length
+
+*bidirMaximumEyePathDepthTextf.columns: 12
+*bidirMaximumLightPathDepthTextf.columns: 12
+*bidirMaximumPathDepthTextf.columns: 12
+*bidirMinimumPathDepthTextf.columns: 12
+
+*bidirImportantLightToggle.labelString: Light Source Importance Sampling
+*bidirBaseFilenameTextf.columns: 30
+
+!! Phong Edf, .... editor panels:
+*phongKdForm.orientation: XmHORIZONTAL
+*phongKdLabel.labelString: diffuse\ 
+*phongKsForm.orientation: XmHORIZONTAL
+*phongKsLabel.labelString: specular
+*phongNsLabel.labelString: exponent:
+*phongNsTextf.columns: 31
+*phongRLabel.labelString: R:
+*phongRTextf.columns: 6
+*phongGLabel.labelString: G:
+*phongGTextf.columns: 6
+*phongBLabel.labelString: B:
+*phongBTextf.columns: 6
+*phongXLabel.labelString: X:
+*phongYLabel.labelString: Y:
+*phongZLabel.labelString: Z:
+*phongNrNiForm.orientation: XmHORIZONTAL
+*phongNrLabel.labelString: \ \ \ \ \ \ \ \ nr:
+*phongNrTextf.columns: 11
+*phongNiLabel.labelString: ni:
+*phongNiTextf.columns: 12
+
+!! Photonmap control panel
+
+*pmapControlPanel_popup.title: Photon Map
+*pmapControlPanel.okLabelString: Dismiss
+*pmapControlPanel.autoUnmanage: True
+*pmapTitle.labelString: Photonmap Options
+*pmapColumns.orientation: XmHORIZONTAL
+
+
+*pmapStandardTitle.labelString: Standard
+*pmapDoGlobalMap.labelString: Global Map
+*pmapGSamplesPerIteration.labelString: Samples / Iteration
+*pmapGSamplesPerIterationTextf.columns: 7
+*pmapDoCausticMap.labelString: Caustic Map
+*pmapCSamplesPerIteration.labelString: Samples / Iteration
+*pmapCSamplesPerIterationTextf.columns: 7
+*pmapPrecomputeGIrradiance.labelString: Irradiance precomputation
+*pmapUsePhotonMapSampler.labelString: Fresnel Specular Sampling
+
+*pmapMaxPathLength.labelString: Maximum Path Length
+*pmapMaxPathLengthTextf.columns: 7
+*pmapRenderImage.labelString: Render Particle Hits
+
+*pmapReconstructionTitle.labelString: Reconstruction
+*pmapBalanceKDTree.labelString: Balance KD Tree
+*pmapDoBalanceGTree.labelString: Balance global
+
+*pmapReconLabel.labelString: Nearest photons
+*pmapReconGPhotons.labelString: M global
+*pmapReconGPhotonsTextf.columns: 4
+*pmapReconCPhotons.labelString: M caustic
+*pmapReconCPhotonsTextf.columns: 4
+*pmapReconIPhotons.labelString: M importance
+*pmapReconIPhotonsTextf.columns: 4
+*pmapDistribPhotons.labelString: M redistribution
+*pmapDistribPhotonsTextf.columns: 4
+
+*pmapDCTitle.labelString: Density Control
+
+*pmapDensityControlNo.labelString: No Control
+*pmapDensityControlConstant.labelString: Constant Control
+*pmapDensityControlImportance.labelString: Importance Driven Control
+
+*pmapDCConstantTitle.labelString: Constant Control
+*pmapConstantRD.labelString: Required Density
+*pmapConstantRDTextf.columns: 7
+
+*pmapDCImportanceTitle.labelString: Importance Driven Control
+*pmapDoImportanceMap.labelString: Importance Map
+*pmapISamplesPerIteration.labelString: Samples / Iteration
+*pmapISamplesPerIterationTextf.columns: 7
+*pmapImportanceOption.labelString: Importance
+*pmapDifferentialOption.labelString: Footprint
+*pmapMinimumImpRD.labelString: Minimum Req. Density
+*pmapMinimumImpRDTextf.columns: 5
+*pmapPotScale.labelString: Potential Scale Factor
+*pmapPotScaleTextf.columns: 5
+*pmapCImpScale.labelString: Caustic Import. Scale
+*pmapCImpScaleTextf.columns: 5
+*pmapGImpScale.labelString: Global Import. Scale
+*pmapGImpScaleTextf.columns: 5
+*pmapRDScale.labelString: Footprint Scale
+*pmapRDScaleTextf.columns: 5
+*pmapCornerScatter.labelString: Corner Scattering
+*pmapGThreshold.labelString: G Threshold
+*pmapGThresholdTextf.columns: 7
+
+*pmapTestTitle.labelString: Testing
+*pmapRadReturnGlobal.labelString: Global map density
+*pmapRadReturnCaustic.labelString: Caustic map density
+*pmapRadReturnCImportance.labelString: Caustic importance density
+*pmapRadReturnGImportance.labelString: Global importance density
+*pmapRadReturnRecCDensity.labelString: Caustic required density
+*pmapRadReturnRecGDensity.labelString: Global required density
+*pmapRadReturnImportanceRec.labelString: Importance required density
+*pmapRadReturnImportanceMax.labelString: Potential required density
+*pmapRadReturnGlobalRadiance.labelString: Global radiance
+*pmapRadReturnCausticRadiance.labelString: Caustic radiance
+
+*pmapReturnCImportance.labelString: Caustic Importance
+*pmapPixelImportance.labelString: Pixel Importance
+*pmapNX.labelString: Pixel X
+*pmapNXTextf.columns: 4
+*pmapNY.labelString: Pixel Y
+*pmapNYTextf.columns: 4
+
+*pmapDoStats.labelString: Print Statistics
+*pmapFalseColLog.labelString: Log false color
+*pmapFalseColMono.labelString: Monochrome
+*pmapFalseColMax.labelString: False color maximum
+*pmapFalseColMaxTextf.columns: 7
+
+*pmapRaycastButton.labelString: Raycast
+*pmapRaycastInterruptButton.labelString: Raycast Interrupt
+*pmapRedisplayRaycastButton.labelString: Redisplay
+
+
+*pmapReinitButton.labelString: Reinit
+
+! *pmapRerenderButton.labelString: Rerender
+
+! The Ultimate Rendering Algorithm
+*huraTitle.labelString: The Ultimate Rendering Algorithm\n
+*huraBlaTitle.labelString: Bla
+*huraBlaLabel.labelString: Bla value:
+*huraBlaButton.labelString: Test Bla Value
+
+
+! Density Estimation control panel
+*deControlPanel_popup.title: Density Estimation
+*deControlPanel.okLabelString: Dismiss
+*deControlPanel.autoUnmanage: False
+*deForm.entryAlignment: XmALIGNMENT_CENTER
+
+*deListTitle.topAttachment: XmATTACH_FORM
+*deListTitle.leftAttachment: XmATTACH_FORM
+*deListTitle.rightAttachment: XmATTACH_FORM
+*deListTitle.labelString: Sampling process\n
+
+*deListForm2.entryAlignment: XmALIGNMENT_CENTER
+*deListForm2.topAttachment: XmATTACH_WIDGET
+*deListForm2.topWidget: deListTitle
+*deListForm2.leftAttachment: XmATTACH_FORM
+*deListForm2.bottomAttachment: XmATTACH_FORM
+
+*deListForm1.entryAlignment: XmALIGNMENT_CENTER
+*deListForm1.topAttachment: XmATTACH_WIDGET
+*deListForm1.topWidget: deListTitle
+*deListForm1.leftAttachment: XmATTACH_WIDGET
+*deListForm1.leftWidget: deListForm2
+*deListForm1.rightAttachment: XmATTACH_FORM
+*deListForm1.bottomAttachment: XmATTACH_FORM
+
+*deEmissionForm.entryAlignment: XmALIGNMENT_BEGINNING
+*deEmissionForm.topAttachment: XmATTACH_FORM
+*deEmissionForm.leftAttachment: XmATTACH_FORM
+*deEmissionForm.bottomAttachment: XmATTACH_FORM
+
+*deModulationForm.entryAlignment: XmALIGNMENT_BEGINNING
+*deModulationForm.topAttachment: XmATTACH_FORM
+*deModulationForm.leftAttachment: XmATTACH_WIDGET
+*deModulationForm.leftWidget: deEmissionForm
+*deModulationForm.bottomAttachment: XmATTACH_FORM
+
+*deReflectionForm.entryAlignment: XmALIGNMENT_BEGINNING
+*deReflectionForm.topAttachment: XmATTACH_FORM
+*deReflectionForm.leftAttachment: XmATTACH_WIDGET
+*deReflectionForm.leftWidget: deModulationForm
+*deReflectionForm.rightAttachment: XmATTACH_FORM
+*deReflectionForm.bottomAttachment: XmATTACH_FORM
+
+*deUpperListForm.orientation: XmHORIZONTAL
+*deUpperListForm.leftAttachment: XmATTACH_FORM
+*deUpperListForm.rightAttachment: XmATTACH_FORM
+*deList.width: 200
+*deList.selectionPolicy: XmBROWSE_SELECT
+!*deList.listSizePolicy: XmCONSTANT
+*deList.visibleItemCount: 10
+*deListPBForm.rightAttachment: XmATTACH_FORM
+*deListPBForm.topAttachment: XmATTACH_FORM
+*deListAddPB.labelString: Add
+*deListModifyPB.labelString: Modify
+*deListDeletePB.labelString: Delete
+*deListUpPB.labelString: Up
+*deListDownPB.labelString: Down
+
+*deTitle.topAttachment: XmATTACH_FORM
+*deTitle.leftAttachment: XmATTACH_FORM
+*deTitle.rightAttachment: XmATTACH_FORM
+*deTitle.labelString: Density Estimation control panel\n
+
+*deForm1.entryAlignment: XmALIGNMENT_CENTER
+*deForm1.topAttachment: XmATTACH_WIDGET
+*deForm1.topWidget: deTitle
+*deForm1.leftAttachment: XmATTACH_FORM
+*deForm1.bottomAttachment: XmATTACH_FORM
+
+*deForm2.entryAlignment: XmALIGNMENT_CENTER
+*deForm2.topAttachment: XmATTACH_WIDGET
+*deForm2.topWidget: deTitle
+*deForm2.leftAttachment: XmATTACH_WIDGET
+*deForm2.leftWidget: deForm1
+*deForm2.rightAttachment: XmATTACH_FORM
+*deForm2.bottomAttachment: XmATTACH_FORM
+
+*dePartPart.labelString: Proportion of particle 
+*dePartPartTextf.columns: 5
+*dePartPow.labelString: Proportion of power
+*departPowTextf.columns: 5
+*deNumApply.labelString: Number of times to apply
+*deNumApplyTextf.columns: 5
+
+*deEmissionModeTitle.labelString: Emission sampling function
+*deUniformEmissionMode.labelString: Uniform
+*deCosThetaEmissionMode.labelString: Cos theta
+*deAreaEmissionMode.labelString: Area (Patch sampling)
+*deDirectPotentialEmissionMode.labelString: Direct potential (Patch sampling)
+*deEquiWinEmissionMode.labelString: Equal window size (Patch sampling)
+
+*deHemicubeModeTitle.labelString: Patch probabilities modulation 
+*deNoneHemicubeMode.labelString: Do not modulate
+*deVisibilityHemicubeMode.labelString: Boolean visibility
+*dePixelCountHemicubeMode.labelString: Number of pixel on hemicube faces
+*deFormFactorHemicubeMode.labelString: Form factors
+
+*deSamplingModeTitle.labelString: Reflection sampling function
+*deUniformSamplingMode.labelString: Uniform
+*deCosThetaSamplingMode.labelString: Cos theta
+*deBRDFSamplingMode.labelString: BRDF
+*deAreaSamplingMode.labelString: Area (Patch sampling)
+*deDirectPotentialSamplingMode.labelString: Direct potential (Patch sampling)
+*deEquiWinSamplingMode.labelString: Equal window size (Patch sampling)
+
+*deParticleTracingTitle.labelString: Particle tracing phase
+*deNumberParticle.labelString: Number of particles to send
+*deNumberParticleTextf.columns: 15
+*dePTModeTitle.labelString: Sampling mode
+*dePTSimple.labelString: Simple brdf 
+*dePTAdaptive.labelString: Adaptive equi-window
+*dePTExpert.labelString: Expert 
+*deExpertModePB.labelString: Expert mode configuration
+
+*deReconstructionTitle.labelString: Reconstruction phase
+*deC1.labelString: Constant for kernel size (position)
+*deC1Textf.columns: 15
+*deNumberMaxSubdivision.labelString: Maximum subdivision level (position)
+*deNumberMaxSubdivisionTextf.columns: 5
+*deC2.labelString: Constant for subdivision level selection 
+*deC2Textf.columns: 15
+*deNumberMaxSubdivisionD.labelString: Subdivision level for direction
+*deNumberMaxSubdivisionDTextf.columns: 15
+*deReconstructionModeTitle.labelString: Reconstruction mode
+*deNoneReconstruction.labelString: Diffuse only
+*deUniReconstruction.labelString: Diffuse and glossy, view dependent
+*deMultiReconstruction.labelString: Diffuse and glossy, view independent
+*deEdgeCompensateToggle.labelString: Boundary bias compensation
+*deLargeKernelToggle.labelString: Special processing for large kernel
+*deKernelShapeMenu.labelString: Kernel shape:
+*deCylinderKernel.labelString: Cylinder
+*deConeKernel.labelString: Cone
+*deK2Kernel.labelString: K2
+*deEpanechnikovKernel.labelString: Epanechnikov
+
+*deSimplificationTitle.labelString: Simplification phase
+*deSimplificationThreshold.labelString: Threshold (0..1)
+*deSimplificationModeTitle.labelString: Operation :
+*deSimplificationDecimation.labelString: Decimation
+*deSimplificationCompression.labelString: Compression
+
+
+!! Stochastic Relaxation Radiosity
+*stochrelaxButton.labelString: Stochastic Jacobi Radiosity
+*srrControlPanel_popup.title: Stochastic Jacobi Radiosity 
+*srrControlPanel.okLabelString: Dismiss
+*srrForm.entryAlignment: XmALIGNMENT_CENTER
+*srrTitle.labelString: Stochastic Jacobi Radiosity\nControl Panel\n
+*srrBidirectionalButton.labelString: Bidirectional Transfers
+*srrImportanceDrivenButton.labelString: Use View-Importance
+
+*mcrDisplayTitle.labelString: Display Options
+*srrShowTotalButton.labelString: Show Total Radiance
+*srrShowIndirectButton.labelString: Show Non-Source Radiance
+*srrShowImportanceButton.labelString: Show View-Importance
+*mcrShowWeightingGainButton.labelString: Show Weighting Error Ratio
+*mcrShowWeightedButton.labelString: Show Weighted Solution
+*mcrShowNonWeightedButton.labelString: Show Non-Weighted Solution
+*mcrShowAutoWeightedButton.labelString: Show Auto-Weighted Solution
+
+!! Random Walk Radiosity
+*randwalkButton.labelString: Random Walk Radiosity
+*rwrControlPanel_popup.title: Random Walk Radiosity
+*rwrControlPanel.okLabelString: Dismiss
+*rwrForm.orientation: XmHORIZONTAL
+*rwrForm.entryAlignment: XmALIGNMENT_CENTER
+*rwrLeft.orientation: XmVERTICAL
+*rwrRight.orientation: XmVERTICAL
+*rwrTitle.labelString: Random Walk Radiosity\nControl Panel\n
+*rwrContinuousButton.labelString: Continuous random walks
+*rwrEstimatorTypeTitle.labelString: Estimator Type
+*rwrGatheringButton.labelString: Gathering
+*rwrShootingButton.labelString: Shooting
+*rwrEstimatorKindTitle.labelString: Estimator Kind (Shooting Only)
+*rwrCollisionButton.labelString: Collision (Score on all path nodes)
+*rwrAbsorptionButton.labelString: Absorption (Score only last node)
+*rwrSurvivalButton.labelString: Survival (Score all but last node)
+*rwrLastButNthButton.labelString: Score last-but-Nth node (N below)
+*rwrNLastButton.labelString: Score last N nodes (N below)
+*rwrN.labelString: N
+*rwrNTextf.columns: 4
+
+*rwrGFFMISButton.labelString: Gathering for Free (M.I.S.)
+*rwrGFFVARButton.labelString: Gathering for Free (Sample Variances)
+*rwrGFFHEURButton.labelString: Gathering for Free (Heuristical)
+*rwrK.labelString: Magic K-factor
+*rwrKTextf.columns: 8
+*rwrRedisplayButton.labelString: Update Display Colors
+*rwrShowShootingWeightsButton.labelString: Show Combination Weights
+
+!! common for stochastic relaxation and random walk radiosity
+*mcrVariaTitle.labelString: Main Options
+*mcrRayUnits.labelString: Ray Units per Iteration
+*mcrRayUnitsTextf.columns: 4
+*mcrConstControlVButton.labelString: Constant Control Variate
+*mcrIndirectOnlyButton.labelString: Indirect Illumination Only
+*mcrNonDiffuseFirstShotButton.labelString: Non-diffuse First Shot
+*mcrInitLSSamples.labelString: Nr of Samples per Light Source
+*mcrInitLSSamplesTextf.columns: 7
+*mcrWeightedSamplingButton.labelString: Weighted Sampling
+*mcrFakeGlobalLinesButton.labelString: Fake Global Lines
+
+*samplingTitle.labelString: Sampling Options
+*samplingRandomButton.labelString: Pseudo-Random
+*samplingHaltonButton.labelString: Halton QMC
+*samplingNiederreiterButton.labelString: Niederreiter QMC
+
+*basisTitle.labelString: Radiosity Approximation
+*constantBasisButton.labelString: Constant
+*linearBasisButton.labelString: Linear
+*quadraticBasisButton.labelString: Quadratic
+*cubicBasisButton.labelString: Cubic
+
+!! element hierarchy panels
+*hierHMeshTitle.labelString: Hierarchical meshing
+*hierAccuracyTitle.labelString: Accuracy
+*hierHMeshingButton.labelString: Hierarchical Refinement
+*hierEpsilon.labelString: Epsilon
+*hierEpsilonTextf.columns: 12
+*hierMinArea.labelString: Rel. Min. Area
+*hierMinAreaTextf.columns: 12
+
+*hierClusteringTitle.labelString: Clustering
+*hierNoClusteringButton.labelString: No Clustering
+*hierIsotropicClusteringButton.labelString: Isotropic Clustering
+*hierOrientedClusteringButton.labelString: Oriented Clustering
+
+!! hardware-assisted ray casting
+*rcastButton.labelString: Ray Casting
+
+!! ray matting
+*rmatteButton.labelString: Ray Matting
+*rmControlPanel_popup.title: Ray Matting
+*rmTitle.labelString: Ray Matting
+*rmPixelFilterTitle.labelString: Pixel Filter Options
+*rmBox.labelString: Box filter
+*rmTent.labelString: Tent filter
+*rmGauss.labelString: Gauss filter 1/sqrt2
+*rmGauss2.labelString: Gauss filter 1/2
+*rmPixelSamples.labelString: Samples per pixel
+*rmPixelSamplesTextf.columns: 12 
+
+!! Path debug/visualisation
+
+*pathDebugPanel_popup.title: Path Debug
+*pathDebugToggleShadingFrame.labelString: Toggle shading frame
+*pathDebugTracePath.labelString: Trace new eye path
+*pathDebugTraceLightPath.labelString: Trace new light path
+*pathDebugTraceSplit.labelString: Trace new eye split
+*pathDebugReleasePaths.labelString: Delete paths
+
+!! YUP
+*yupButton.labelString: YUP
+*yupTitle.labelString: YUP Control Panel

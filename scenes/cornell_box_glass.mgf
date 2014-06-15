@@ -1,0 +1,210 @@
+# ------ Named colors -------
+
+c whitishsteel =
+	cxy 0.333330 0.333330
+
+c yellowishwhite =
+	cxy 0.337000 0.337000
+
+c whitishred =
+	cxy 0.333330 0.333330
+
+c whitishblue =
+	cxy 0.333330 0.333330
+
+c blue =
+	cxy 0.260000 0.260000
+
+c steel =
+	cxy 0.000000 0.380000
+
+c yellow =
+	cxy 0.376563 0.395833
+
+c beige =
+	cxy 0.356563 0.365833
+
+c red =
+	cxy 0.750000 0.100000
+
+c wight =
+	cxy 0.333333 0.333333
+
+
+# ------ Named Materials ------ 
+
+m lighting =
+	c
+		cxy 0.333333 0.333333
+	rd 0.000000
+	c yellowishwhite
+	ed 120000.000000
+
+m skylight =
+	c
+		cxy 0.333333 0.333333
+	rd 0.000000
+	c yellowishwhite
+	ed 250000.000000
+
+m blue =
+	c blue
+	rd 0.160000
+	c whitishblue
+	rs 0.0540000 0.4000
+
+m steel =
+	c steel
+	rd 0.0000
+	c whitishsteel
+	rs 0.40000 0.01000
+
+m yellow =
+	c whitishblue
+ 	rd 0.00000
+ 	rs 0.000000 0.10000
+	ts 0.99 0.001
+	td 0
+	ir 1.6 0
+
+m red =
+	c red
+	rd 0.290000
+	c whitishred
+	rs 0.050000 0.05000
+
+m ceilingwhite =
+	c wight
+	rd 0.600000
+	rs 0.100000 0.019000
+
+m rearwhite =
+	c beige
+	rd 0.500000
+	rs 0.0500000 0.042000
+
+m floor =
+	c wight
+	rd 0.600000
+	rs 0.100000 0.02000
+
+o object0
+v v_0 =
+	p 0.000000 0.000000 0.000000
+v v_1 =
+	p 10.000000 0.000000 0.000000
+v v_2 =
+	p 10.000000 9.800000 0.000000
+v v_3 =
+	p 0.000000 9.800000 0.000000
+m floor
+f v_0 v_1 v_2 v_3
+o
+
+o object1
+v v_4 =
+	p 0.000000 9.800000 0.000000
+v v_5 =
+	p 10.000000 9.800000 0.000000
+v v_6 =
+	p 10.000000 9.800000 7.000000
+v v_7 =
+	p 0.000000 9.800000 7.000000
+m rearwhite
+f v_4 v_5 v_6 v_7
+o
+
+o object2
+v v_8 =
+	p 10.000000 0.000000 7.000000
+v v_9 =
+	p 0.000000 0.000000 7.000000
+v v_10 =
+	p 0.000000 9.800000 7.000000
+v v_11 =
+	p 10.000000 9.800000 7.000000
+m ceilingwhite
+f v_8 v_9 v_10 v_11
+o
+
+o object3
+v v_12 =
+	p 0.000000 0.000000 0.000000
+v v_13 =
+	p 0.000000 9.800000 0.000000
+v v_14 =
+	p 0.000000 9.800000 7.000000
+v v_15 =
+	p 0.000000 0.000000 7.000000
+m blue
+f v_12 v_13 v_14 v_15
+o
+
+o object4
+v v_16 =
+	p 10.000000 0.000000 0.000000
+v v_17 =
+	p 10.000000 0.000000 7.000000
+v v_18 =
+	p 10.000000 9.800000 7.000000
+v v_19 =
+	p 10.000000 9.800000 0.000000
+m red
+f v_16 v_17 v_18 v_19
+o
+
+o object5
+v v_20 =
+	p 4.400000 4.400000 6.999996
+v v_21 =
+	p 4.400000 5.400000 6.999996
+v v_22 =
+	p 5.400000 5.400000 6.999996
+v v_23 =
+	p 5.400000 4.400000 6.999996
+m skylight
+f v_20 v_21 v_22 v_23
+o
+
+
+v c_1 =
+	p -1 -.1 -1
+v c_2 =
+	p -1 -.1 1
+v c_3 =
+	p 1 -.1 1
+v c_4 =
+	p 1 -.1 -1
+v c_5 =
+	p -1 .1 -1
+v c_6 =
+	p -1 .1 1
+v c_7 =
+	p 1 .1 1
+v c_8 =
+	p 1 .1 -1
+
+v center =
+	p 0 0 0 
+
+o metal
+m steel
+xf -s 1.3 -t 3 7 2
+sph center 1.2
+xf
+o
+
+o trans
+m yellow
+xf -s 1.3 -t 7 2 2
+sph center 1.2
+xf
+o
+
+o object8
+v v_c =
+	p 4.600000 -2.160000 10.600000
+m lighting 
+sph v_c 0.600000
+o
+

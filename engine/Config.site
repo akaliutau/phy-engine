@@ -1,0 +1,112 @@
+# Configuration data for Linux
+
+# with GCC:
+CC = gcc 
+CXX = g++ 
+MAKEDEPEND = gcc -M
+PROFLAGS = # -pg 		# for profiling
+DEBUGFLAGS = -g 		# for debugging
+# If you have a processor of a type prior to a Pentium PRO or
+# Pentium II, omit the -march=i686 flag or you'll get an invalid operation
+# exception when you start Phy2.
+OPTFLAGS = -O3 -Wall -pedantic -Wno-long-long -mieee-fp -malign-double -march=i686
+CXXFLAGS = # C++ specific flags
+
+# no ranlib command on Linux. Use 'touch' instead.
+RANLIB = touch
+
+# See 0COMPILATIONFLAGS to see what flags you can set if you care.
+EXTRAFLAGS = -DOSLINUX -DSOFT_ID_RENDERING  -DDEFAULT_GAMMA=1.7 -DNOPOOLS
+
+################################################################
+# directory where to install Phy2 with make install.
+INSTALLDIR = /usr/local
+BINDIR = ${INSTALLDIR}/bin
+DATADIR = ${INSTALLDIR}/lib/phy
+
+################################################################
+# Flags for the POOLS library:
+# Cells will be aligned to a POOL_ALIGN boundary if defined, or an 
+# 8-byte boundary if not defined. If the program mysteriously crashes
+# when starting up when porting to a new architecture, let
+# the following empty.
+# NOTE: POOLS IS BUGGY AND MEMORY MANAGEMENT ON LINUX IS SO MUCH
+# BETTER THAN BEFORE THAT YOU WILL PROBABLY NOT NEED IT ANYMORE.
+# COMPILE WITH -DNOPOOLS !!!!!!!
+POOLFLAGS = -DPOOL_ALIGN=4 # -DSANITY_CHECKS
+
+################################################################
+# OpenGL/Mesa
+DRIVER = opengl
+
+# OpenGL include files and library appear to be in /usr/include
+# and /usr/lib normally on recent Linux systems
+DRIVERFLAGS = -I/usr/include $(HWFLAGS)
+DRIVERLIBS = -L/usr/lib -lGLU -lGL
+
+# Mesa (free OpenGL-like library: www.mesa3d.org)
+# On recent systems, 'MesaGL' is installed as 'GL' and 'MesaGLU' as 'GLU' and
+# the settings above will work fine. Some people (like us) however have locally
+# compiled and installed Mesa in a non-standard directory under the
+# names MesaGL and MesaGLU. We do that because Mesa's offscreen rendering
+# capabilities (osmesa driver) are not always offered by the "stock" OpenGL
+# installed on our Linux systens and/or to take advantage of special instruction
+# sets such as 3dnow or katmai.
+# Offscreen rendering with the osmesa driver is only included if you
+# define the symbol OSMESA.
+# Sometimes, Mesa also needs libpthreads to be linked (multithreading).
+#MESAHOME = /usr/local/graphics
+#DRIVERFLAGS = -DOSMESA -I$(MESAHOME)/include
+#DRIVERLIBS = -L$(MESAHOME)/lib -lMesaGLU -lMesaGL $(HWLIBS) -lpthread
+
+# specific flags for hardware supported by Mesa
+# Glide driver (3dfx graphics boards)
+#HWFLAGS = 
+#GLIDELIBDIR = 		# directory where glide libs are installed
+#HWLIBS = $(GLIDELIBDIR) -lglide2x -ltexus
+
+################################################################
+# X window system flags and files:
+
+X11HOME = /usr/X11R6
+XINCLUDES = -I$(X11HOME)/include 
+XLIBS = -L$(X11HOME)/lib -lXt -lXmu -lX11 $(CCMALLOCLIB)
+# CCMALLOCLIB = -lccmalloc -ldl
+
+# MOTIFHOME = /usr/X11R6
+# lesstif:
+MOTIFHOME = /usr/X11R6/LessTif/Motif1.2
+# MOTIFHOME = /usr/local/Motif
+MOTIFINCLUDES = -I$(MOTIFHOME)/include
+# -lXpm library necessary for Motif >=2.0, not for Motif <2.0
+# -lXp necessary for Motif 2.1
+# certain versions of LessTiff apparently need -lXp but not -lXpm
+# moral of the story: try it as it is below, and remove non-found libraries
+# as you need
+MOTIFLIBS = -L$(MOTIFHOME)/lib -lXm -lXpm -lXp
+
+################################################################
+# TIFF support
+# if you don't want/need TIFF support, uncomment all the following lines
+#TIFFHOME = /usr/local/graphics
+TIFFHOME = /usr
+
+# flags: -DNO_TIFF if you have no TIFF library,
+#        -DOLD_TIFF if you have an old TIFF library without the high dynamic 
+#	  range LOGLuv encoding (version prior to 3.4beta037)
+#        omit -DOLD_TIFF if you have a recent TIFF library with the HDR 
+#	 encoding
+# With the old tiff library, you will not be able to save computed images in
+# high dynamic range format (by using the .logluv file suffix). The regular
+# RGB low dynamic range TIFF format can be written still however.
+# If you are impatient to check and don't care about high dynamic range
+# images, specify -DOLD_TIFF.
+# Recent Linux systems (SuSE 7.0 e.g.) however appear to come with a
+# tiff library that offers high-dynamic range image support.
+# TIFFLAGS = -I$(TIFFHOME)/include
+TIFFLAGS = -DNO_TIFF
+
+# Some tiff installation require that you also link with the jpeg and
+# zlib libraries.
+#TIFFLIB = -L$(TIFFHOME)/lib -ltiff -ljpeg -lz
+
