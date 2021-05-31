@@ -34,32 +34,49 @@ Overview
 
 The latest version is dated by 2005. 
 
-# Project structure
+## Project structure
+
+There are 18 modules in total, all modules are compiled into more or less self-contained libraries.
+
+accelerators - containes datastructures to accelerate search in 3d spaces (kdtree)
 
 bbox - datastructures for describing bounding boxes of objects in the scene
 
+colors - datastructures to work with CIE/LUV color spaces and spectrums
+
 generics - base data structures
 
-imageutils - low-level support of .tiff, .ppm and .pic file formats
+geometry - base geometric entities
 
-MGF - low-level support of .mgf file format
+graphicutils - middle-level functions to work with draw canvas, double buffer techniques and similar stuff
 
-photonmapping - functionality for building photon maps and using them during rendering
+imageutils - low-level support of .tiff, .ppm and .pic file formats (currently only .pic is supported - this is a RGBE HDRI format)
 
-PNM - low-level support of .pnm file format
+lighttransport - datastructures to describe interaction of light with surfaces
 
-pools - memory management
+math - some mathematical routines
 
 mcsampling - MC sampling generators
 
+montecarlo - code implementing random walks in 3d spaces
+
+photonmapping - functionality for building photon maps and using them during rendering
+
+pools - memory management
+
 raytracing - pathtracing functionality, brdf factories, calculation of geometric factors
 
-SE - 3rd party libraries for geometric calculations
+tonemapping - mappers to transform HDRI into 24bits (256 colors/channel) images (original image is held in 32-float format https://en.wikipedia.org/wiki/RGBE_image_format)
 
-graphicutil - double buffer techniques and similar stuff taken from different books on CG such as Graphics Gems, etc
+## 3rd-party libraries:
 
-tonemapping - mappers to transform HDRI into 24bits (256 colors/channel) images
+MGF - low-level support of .mgf file format
 
+PNM - low-level support of .pnm file format
+
+SE - libraries for geometric calculations
+
+RGBE file implementation is taken from RADIANCE project(https://floyd.lbl.gov/radiance/refer/filefmts.pdf, copy included in doc/ folder)
 
 # Performance and quality of renderer
 
@@ -69,7 +86,14 @@ For Bi-Directional path tracing with 64 samples/pixel the render time on aforeme
 
 Different noise reduction techniques (such as radiance gradient interpolation) could allow to get a visually acceptable images using just 16-64 spp.
 
-A picture in images/cornell_box_glass.png shows the example of fully rendered image. Note the high-frequency noise, especially visible on scenes with big amount of surfaces with high reflectivity. I didn't implement different approximation techniques which could smooth the granulation (and improve the visual quality of image), because they will make the picture less accurate from the physical point of view, and my aim was to create a <em> physically correct </em> renderer. 
+A pictures in images show the example of fully rendered image. 
+
+images/cornell_box_glass.png  - a classic example of test scene consisting from steel and glass spheres in cornell box with 3 color walls. In this image caustics are rendered using photonmap techniques (1.2M global photons and 100k caustic photons). Main MC algorithm - Bi-Directional Path Tracing with 16 spp.
+
+images/caustic.png  - a classic example of test scene for caustics (rendered using photonmap techniques (0.5M global photons and 50k caustic photons). Main MC algorithm - Bi-Directional Path Tracing with 16 spp.
+
+
+Note the high-frequency noise, especially visible on scenes with big amount of surfaces with high reflectivity. I didn't implement different approximation techniques which could smooth the granulation (and improve the visual quality of image), because they will make the picture less accurate from the physical point of view, and my aim was to create a <em> physically correct </em> renderer. 
 
 The Materials and Geometry Format (MGF) is considered an obsolete now and is not used anymore anywhere. I included the copy of specification (see doc/mgf_specification.pdf), the original document can be found at:
 
@@ -86,6 +110,12 @@ Run from root directory to build the binary file of application (phy2)
 ```
 make clean all
 ```
+
+Building project on VM with RH 9.0
+===================================
+
+TBA
+
 
 Further plans
 ==============
