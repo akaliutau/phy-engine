@@ -111,7 +111,7 @@ Run from root directory to build the binary file of application (phy2)
 make clean all
 ```
 
-Building project on VM with RH 9.0 (archaeological notes)
+Building project on VM with RH 9.0 (passed)
 ==========================================================
 
 1. Install Red Hat 9.0 (Shrike),all packages, 32-bit version, on VirtualBox 6.1 (use PIIX4 type for cdrom device and BusLogic type for primary HDD as other settings do not work)
