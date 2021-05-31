@@ -18,7 +18,7 @@ c blue =
 c green =
 	cxy 0.000000 0.380000
 
-c yellow =
+c gold =
 	cxy 0.376563 0.395833
 
 c beige =
@@ -60,8 +60,6 @@ m green =
 
 m yellow =
 	c whitishblue 
-#  	rd 0.00000
-#  	rs 0.000000 0.10000
 	ts 0.9 0.01
 	td 0
 	ir 1.6 0
@@ -71,9 +69,6 @@ m red =
 	ts 0.8 0.03
 	td 0
 	ir 1.6 0
-# 	rd 0.490000
-# 	c whitishred
-# 	rs 0.050000 0.05000
 
 m ceilingwhite =
 	c wight
@@ -172,7 +167,7 @@ o
 o object6
 v v_s =
 	p 5.5 4.9 3.0
-m yellow
+m gold
 sph v_s 2.990000
 o
 

@@ -27,7 +27,7 @@ c beige =
 c red =
 	cxy 0.750000 0.100000
 
-c wight =
+c white =
 	cxy 0.333333 0.333333
 
 
@@ -74,7 +74,7 @@ m red =
 	rs 0.050000 0.05000
 
 m ceilingwhite =
-	c wight
+	c white
 	rd 0.600000
 	rs 0.100000 0.019000
 
@@ -84,7 +84,7 @@ m rearwhite =
 	rs 0.0500000 0.042000
 
 m floor =
-	c wight
+	c white
 	rd 0.600000
 	rs 0.100000 0.02000
 

@@ -111,11 +111,30 @@ Run from root directory to build the binary file of application (phy2)
 make clean all
 ```
 
-Building project on VM with RH 9.0
-===================================
+Building project on VM with RH 9.0 (archaeological notes)
+==========================================================
 
-TBA
+1. Install Red Hat 9.0 (Shrike),all packages, 32-bit version, on VirtualBox 6.1 (use PIIX4 type for cdrom device and BusLogic type for primary HDD as other settings do not work)
 
+2. VBoxGuestAdditions does not compile on RH9 32-bit, so as a walk around one can use local ftp server running on host machine and access it from guest OS using gFTP or similar soft.
+
+The following command instantiates docker container with ftp service:
+
+```
+docker run -d -v ./phy-engine:/home/vsftpd -p 20:20 -p 21:21 -p 47400-47470:47400-47470 -e FTP_USER=ftp -e FTP_PASS=ftp -e PASV_ADDRESS=127.0.0.1 --name ftp --restart=always bogem/ftp
+
+Digest: sha256:cf7fe609a474c921002c3cb390b7116ce3631feb6556f95125842c1a9327bc6a
+Status: Downloaded newer image for bogem/ftp:latest
+cbf9e0cdba79e964dec32ee13e2edf0487cb3cb92368a5a79066e31f3662ee74
+
+docker ps -a
+
+CONTAINER ID   IMAGE                        COMMAND                  CREATED              STATUS                      PORTS                                                            NAMES
+cbf9e0cdba79   bogem/ftp                    "/usr/sbin/run-vsftp"   About a minute ago   Up About a minute      
+``` 
+   By default VirtualBox maps localhost to 10.0.2.2 address, so the ftp should be visible at ftp://ftp@10.0.2.2:21 in guest machine
+
+3. Copy sources to guest OS, compile and run as mentioned earlier.
 
 Further plans
 ==============
