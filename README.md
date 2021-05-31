@@ -177,7 +177,7 @@ The main articles which I used in my work are:
 [14] Cohen M.F., Wallace J.R. Radiosity and realistic image synthesis. Morgan Kaufmann, 1993. 385 p.
 
 [15]* State of the Art in Monte Carlo Ray Tracing for Realistic Image Synthesis. Siggraph 2001 Course 29 (Monday, August 13, 2001)
-
+https://cseweb.ucsd.edu/~viscomp/classes/cse274/wi18/readings/course29sig01.pdf
 
 _____
 * The last resource was very useful because it covered most of the topics in CG imagery synthesis.
