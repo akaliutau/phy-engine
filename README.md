@@ -90,7 +90,7 @@ A pictures in images show the example of fully rendered image.
 
 images/cornell_box_glass.png  - a classic example of test scene consisting from steel and glass spheres in cornell box with 3 color walls. In this image caustics are rendered using photonmap techniques (1.2M global photons and 100k caustic photons). Main MC algorithm - Bi-Directional Path Tracing with 16 spp.
 
-images/caustic.png  - a classic example of test scene for caustics (rendered using photonmap techniques (0.5M global photons and 50k caustic photons). Main MC algorithm - Bi-Directional Path Tracing with 16 spp.
+images/caustic.png  - a classic example of test scene for cardioid caustic rendered using photonmap techniques (0.5M global photons and 50k caustic photons). Main MC algorithm - Bi-Directional Path Tracing with 16 spp.
 
 
 Note the high-frequency noise, especially visible on scenes with big amount of surfaces with high reflectivity. I didn't implement different approximation techniques which could smooth the granulation (and improve the visual quality of image), because they will make the picture less accurate from the physical point of view, and my aim was to create a <em> physically correct </em> renderer. 
