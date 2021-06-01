@@ -76,7 +76,7 @@ PNM - low-level support of .pnm file format
 
 SE - libraries for geometric calculations
 
-RGBE file implementation is taken from RADIANCE project(https://floyd.lbl.gov/radiance/refer/filefmts.pdf, copy included in doc/ folder)
+RGBE file implementation is taken from RADIANCE project(see the details about format in documentation https://floyd.lbl.gov/radiance/refer/filefmts.pdf, section Picture File Format (.pic suffix), copy included in doc/ folder)
 
 # Performance and quality of renderer
 
